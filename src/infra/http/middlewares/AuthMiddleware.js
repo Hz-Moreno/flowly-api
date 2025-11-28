@@ -1,26 +1,22 @@
-import { check } from "../utils/UtilJWT.js";
-import { SessionRepository } from "../repository/SessionRepository.js";
+const JWT = require("../../services/JWTTokenService.js");
 
 export async function validateJWTToken(request, req, res) {
   const token = request.headers.token;
-
   if (!token) {
     return {
       ok: false,
-      msg: "Missing Token",
+      msg: "Missing Token!",
     };
   }
 
-  if (!check(token)) {
-    console.log(222);
+  if (!JWT.check(token)) {
     return {
       ok: false,
-      msg: "Invalid Token",
+      msg: "Invalid Token!",
     };
   }
 
   const session = await SessionRepository.getByToken(token);
-
   if (session != null && session.status === 1) {
     return {
       ok: true,
@@ -30,6 +26,6 @@ export async function validateJWTToken(request, req, res) {
 
   return {
     ok: false,
-    msg: "Unauthorized",
+    msg: "Unauthorized!",
   };
 }

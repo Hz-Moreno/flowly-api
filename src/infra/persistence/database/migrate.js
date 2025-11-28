@@ -1,10 +1,16 @@
-import path from "path";
-import fs from "fs";
-import { pool } from "./pool.js";
+const path = require("path");
+const fs = require("fs");
+const { pool } = require("./pool.js");
 
 export async function handle() {
-  console.log("INIT FN");
-  const dir = path.join(process.cwd(), "src", "database", "migrations");
+  const dir = path.join(
+    process.cwd(),
+    "src",
+    "infra",
+    "persistence",
+    "database",
+    "migrations",
+  );
   const files = fs.readdirSync(dir);
 
   for (const file of files) {
@@ -15,9 +21,9 @@ export async function handle() {
 
     try {
       await pool.query(sql);
-      console.log("FINISH FN");
+      console.log(file, " Migrated!");
     } catch (err) {
-      console.error("Error on migrated: ", err);
+      console.error("Error on migrate: ", err);
       process.exit(1);
     }
   }
