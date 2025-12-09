@@ -1,10 +1,10 @@
 import type { IUserRepository } from "../repositories/IUserRepository.js";
-import { User } from "../../domain/entities/UserEntity.js";
+import { UserEntity } from "../../domain/entities/UserEntity.js";
 
-class CreateUserUseCase {
+export default class CreateUserUseCase {
   constructor(private repository: IUserRepository) {}
 
-  handle(data: User): User {
+  async handle(data: UserEntity): Promise<UserEntity> {
     return this.repository.save(data);
   }
 }

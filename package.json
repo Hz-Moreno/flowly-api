@@ -4,10 +4,11 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/index.ts",
+    "dev": "tsx src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "start:dev": "ts-node-dev --respawn src/index.ts"
+    "start:dev": "tsx watch src/index.ts",
+    "migrate": "tsx src/infra/persistence/migrate.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@types/node": "^24.10.1",
     "mysql2": "^3.15.3",
+    "ts-node-dev": "^2.0.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }

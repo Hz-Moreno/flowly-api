@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS users_sessions(
+    id VARCHAR(255) PRIMARY KEY,
+    user_id VARCHAR(255)  NOT NULL,
+    token VARCHAR(255)  NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMP NULL,
+
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+)
