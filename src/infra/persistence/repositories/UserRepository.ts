@@ -1,4 +1,4 @@
-import type { IUserRepository } from "../../../app/repositories/IUserRepository.js";
+import type IUserRepository from "../../../app/repositories/IUserRepository.js";
 import type { RepositoryResponse } from "../../../app/types/RepositoryResponse.js";
 import type { UserEntity } from "../../../domain/entities/UserEntity.js";
 import { pool } from "../pool.js";

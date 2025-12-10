@@ -1,10 +1,11 @@
 import mysql from "mysql2/promise";
+import { env } from "../../../env.js";
 
 export const pool = mysql.createPool({
-  host: "localhost",
-  user: "dduser",
-  password: "ddpassword",
-  database: "flowly-db",
+  host: env.db.host,
+  user: env.db.user,
+  password: env.db.passoword,
+  database: env.db.dbname,
   waitForConnections: true,
   connectionLimit: 10,
 });
