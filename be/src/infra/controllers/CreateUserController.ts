@@ -26,7 +26,7 @@ export default class CreateUserController {
     try {
       const userDto = new UserDTO(
         content.name,
-        randomUUID(),
+        "",
         content.email,
         content.password,
       );

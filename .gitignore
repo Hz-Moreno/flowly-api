@@ -1,3 +1,15 @@
-env.ts
-node_modules/
-mysql-data/
+#BACKEND FILES
+
+/be/env.ts
+/be/node_modules/
+/be/mysql-data/
+
+#FRONTEND FILES
+
+/fe/.DS_Store
+/fe/.env
+/fe/node_modules/
+
+# React Router
+/fe/.react-router/
+/fe/build/
